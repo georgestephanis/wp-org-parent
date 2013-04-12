@@ -5,7 +5,7 @@ function get_remote_part( $url, $minutes_to_save = 60 ) {
 	if ( false === ( $value = get_transient( $transient_name ) ) ) {
 		$value = wp_remote_retrieve_body( wp_remote_get( $url ) );
 		if( $value ) {
-			set_transient( $transient_name, $value, ( 60 * $minutes_to_save ) );
+			set_transient( $transient_name, $value, ( MINUTE_IN_SECONDS * $minutes_to_save ) );
 		}
 	}
 	return $value;
